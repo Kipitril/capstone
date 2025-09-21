@@ -1,0 +1,21 @@
+{
+  "polls": [
+    {
+      "id": "a012",
+      "question": "what is you favourite language",
+      "options": [
+        {
+          "id": "redrtua",
+          "text": "english",
+          "votes": 0
+        },
+        {
+          "id": "l40yid5",
+          "text": "swahili",
+          "votes": 0
+        }
+      ],
+      "createdAt": "2025-09-21T08:46:29.073Z"
+    }
+  ]
+}
