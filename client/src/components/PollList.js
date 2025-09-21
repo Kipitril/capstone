@@ -1,17 +1,29 @@
-// client/src/components/PollList.test.js
-import { render, screen } from '@testing-library/react';
-import PollList from './PollList';
+// client/src/components/PollList.js
+import React from 'react';
 
-test('renders a list of polls', () => {
-  const mockPolls = [
-    { id: 1, question: 'Favorite color?', options: ['Red', 'Blue'] },
-    { id: 2, question: 'Best language?', options: ['Python', 'JavaScript'] }
-  ];
+function PollList({ polls = [] }) {
+  return (
+    <div>
+      <h2>Available Polls</h2>
+      {polls.length === 0 ? (
+        <p>No polls available. Create one above!</p>
+      ) : (
+        <ul>
+          {polls.map((poll) => (
+            <li key={poll.id}>
+              <strong>{poll.question}</strong>
+              <ul>
+                {poll.options.map((option, index) => (
+                  <li key={index}>{option}</li>
+                ))}
+              </ul>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+}
 
-  render(<PollList polls={mockPolls} />);
-
-  // Check if poll questions appear
-  expect(screen.getByText(/Favorite color/i)).toBeInTheDocument();
-  expect(screen.getByText(/Best language/i)).toBeInTheDocument();
-});
+export default PollList;  // ✅ This fixes your "no export" error
 
